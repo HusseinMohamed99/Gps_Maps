@@ -29,27 +29,31 @@ Set<Marker> marker = {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Expanded(
-        child: GoogleMap(
-          initialCameraPosition: cameraPosition,
-          mapType: MapType.normal,
-          onMapCreated: (GoogleMapController controller)
-          {
-            googleMapController = controller;
-          },
-          myLocationButtonEnabled: true,
-          myLocationEnabled: true,
-          compassEnabled: true,
-          markers: marker,
-          onTap: (latLng)
-          {
-            print(latLng);
-          },
-          onLongPress: (latLng)
-          {
-            print(latLng);
-          },
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: GoogleMap(
+              initialCameraPosition: cameraPosition,
+              mapType: MapType.normal,
+              onMapCreated: (GoogleMapController controller)
+              {
+                googleMapController = controller;
+              },
+              myLocationButtonEnabled: true,
+              myLocationEnabled: true,
+              compassEnabled: true,
+              markers: marker,
+              onTap: (latLng)
+              {
+                print(latLng);
+              },
+              onLongPress: (latLng)
+              {
+                print(latLng);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
